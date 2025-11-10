@@ -20,8 +20,8 @@ function onBlogSubmit(e) {
     e.preventDefault();
 
     const blogObj = {
-        blogTitle: blogTitleCtrl.value.trim(),
-        blogContent: blogContentCtrl.value.trim()
+        blogTitle: blogTitleCtrl.value,
+        blogContent: blogContentCtrl.value
     };
 
     if (!blogObj.blogTitle || !blogObj.blogContent) {
@@ -69,3 +69,4 @@ const renderBlogs = (blogs) => {
 
 
 blogForm.addEventListener("submit", onBlogSubmit);
+
