@@ -37,7 +37,7 @@ const onPostblog = (obj) => {
         if (!error1) {
             blogsArr.push(obj);
             onFetchBlog(blogsArr);
-            snackBar("success", "Added");
+            snackBar("success", "Blog added successfully!");
 
         } else {
             snackBar("error", "something went wrong while postBlog");
@@ -93,6 +93,7 @@ const temp = (data) => {
 
 
 blogForm.addEventListener("submit", onBlogSubmit)
+
 
 
 
