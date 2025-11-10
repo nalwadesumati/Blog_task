@@ -11,8 +11,8 @@ let blogsArr = [];
 
 function snackBar(msg, icon) {
     Swal.fire({
-        title: "Something went wrong while creating new Blog !!!",
-        icon: "error",
+        title: msg,
+        icon: icon,
         timer: 2500
     })
 }
@@ -33,13 +33,14 @@ function onBlogSubmit(eve) {
 
 const onPostblog = (obj) => {
     setTimeout(() => {
-        let error1 = Math.random() > .5 ? false : true;
+        let error1 = Math.random() > .4 ? false : true;
         if (!error1) {
             blogsArr.push(obj);
-            onFetchBlog(blogsArr)
+            onFetchBlog(blogsArr);
+            snackBar("success", "Added");
 
         } else {
-            snackBar('Something went wrong while creating new Blog !!!', 'error')
+            snackBar("error", "something went wrong while postBlog");
         }
     }, 2000);
 }
@@ -51,11 +52,13 @@ const onFetchBlog = (arr) => {
         let error = Math.random() > .5 ? false : true;
 
         if (!error) {
-            let data = arr;
+
 
             temp(data);
         } else {
-            snackBar('Something went wrong while creating new Blog !!!', 'error')
+            snackBar("error", "Fetch failed, showing old data");
+            temp(arr);
+
 
         }
     }, 1000)
@@ -85,8 +88,12 @@ const temp = (data) => {
 
 
 
-blogForm.reset();
+
 
 
 
 blogForm.addEventListener("submit", onBlogSubmit)
+
+
+
+
