@@ -5,3 +5,7 @@ body {
   background-position: center;
   background-attachment: fixed;
 }
+
+#blogContainer .card {
+  height: 100%;
+}
